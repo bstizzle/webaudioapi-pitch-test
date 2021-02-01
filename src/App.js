@@ -9,13 +9,15 @@ function App() {
   const [oscFreq, setOscFreq] = useState(27.5)
   const [slidePos, setSlidePos] = useState({x: 0})
   const [gain, setGain] = useState(0.5)
+  const [distortion, setDistortion] = useState(0)
 
-  console.log(audioState)
-  console.log(waveType)
-  console.log(slidePos)
-  console.log(oscFreq)
-  console.log(gain)
-  
+  // console.log(audioState)
+  // console.log(waveType)
+  // console.log(slidePos)
+  // console.log(oscFreq)
+  // console.log(gain)
+  console.log(distortion)
+
   const twelfthTwo = Math.pow(2, 1/12)
 
   const getMicrophone = async () => {
@@ -54,6 +56,11 @@ function App() {
     const newFreq = Math.round(27.5 * Math.pow(twelfthTwo, x.x))
     setOscFreq(newFreq)
   }
+
+  const handleSetDistortion = (x) => {
+    console.log(x)
+    setDistortion(x)
+  }
   
   return(
     <div className="App">
@@ -66,11 +73,17 @@ function App() {
             Change Waveform to {(waveType === 'sine') ? 'square' : 'sine'}
           </button>
           <br></br>
+          Frequency Slider
           {audioState ? <Slider axis="x" xstep={1} xmin={0} xmax={88} x={slidePos.x} onChange={x => changeSlidePos(x)} /> : ''}
+          <br></br>
+          Gain Slider
           {audioState ? <Slider axis="x" xstep={0.1} xmin={0} xmax={1} x={gain} onChange={({ x }) => setGain(x)} /> : ''}
+          <br></br>
+          Distortion Slider
+          {audioState ? <Slider axis="x" xstep={1} xmin={0} xmax={100} x={distortion} onChange={({ x }) => handleSetDistortion(x)} /> : ''}
         </div>
         {audioState ? <MicAudioAnalyser audio={audioState} /> : ''}
-        {audioState ? <OscAudioAnalyser waveType={waveType} freq={oscFreq} gain={gain} /> : ''}
+        {audioState ? <OscAudioAnalyser waveType={waveType} freq={oscFreq} gain={gain} dist={distortion} /> : ''}
       </main>
     </div>
   );
