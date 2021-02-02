@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import MicAudioAnalyser from './MicAudioAnalyser';
 import OscAudioAnalyser from './OscAudioAnalyser';
 import Slider from 'react-input-slider';
+import BarGraphVisualiser from './BarGraphVisualiser';
 
 function App() {
   const [audioState, setAudioState] = useState(null)
@@ -83,6 +84,7 @@ function App() {
           {audioState ? <Slider axis="x" xstep={1} xmin={0} xmax={100} x={distortion} onChange={({ x }) => handleSetDistortion(x)} /> : ''}
         </div>
         {audioState ? <MicAudioAnalyser audio={audioState} /> : ''}
+        {audioState ? <BarGraphVisualiser audio={audioState} /> : ''}
         {audioState ? <OscAudioAnalyser waveType={waveType} freq={oscFreq} gain={gain} dist={distortion} /> : ''}
       </main>
     </div>
