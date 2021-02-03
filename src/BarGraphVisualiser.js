@@ -42,7 +42,7 @@ class BarGraphVisualiser extends Component {
         context.fillStyle = 'rgb(0, 0, 0)';
         context.fillRect(0, 0, width, height);
 
-        let barWidth = (width/ this.bufferLength) * 2.5;
+        let barWidth = (width / this.bufferLength) * 2.5;
         let barHeight;
         let x = 0;
 
@@ -63,7 +63,7 @@ class BarGraphVisualiser extends Component {
     }
 
     render() {
-        return <canvas width="300" height="300" ref={this.canvas} />;
+        return <canvas width="300" height="100" ref={this.canvas} />;
     }
 }
 

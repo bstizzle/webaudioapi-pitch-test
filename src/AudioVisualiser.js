@@ -22,19 +22,6 @@ class AudioVisualiser extends Component {
         context.strokeStyle = '#000000';
         context.clearRect(0, 0, width, height);
 
-        // context.fillStyle = 'rgb(0, 0, 0)';
-        // context.fillRect(0, 0, width, height);
-        // let barWidth = (width / audioData.length) * 2.5;
-        // let barHeight;
-        // for(let i = 0; i < audioData.length; i++){
-        //     barHeight = audioData[i]/2;
-
-        //     context.fillStyle = 'rgb(' + (barHeight+100) + ',50,50)';
-        //     context.fillRect(x, height-barHeight/2,barWidth,barHeight);
-
-        //     x += barWidth + 1;
-        // }
-
         context.beginPath();
         context.moveTo(0, height / 2);
 

@@ -46,7 +46,7 @@ function App() {
 
   const toggleWaveType = () => {
     if(waveType === 'sine'){
-      setWaveType('square')
+      setWaveType('sawtooth')
     }else{
       setWaveType('sine')
     }
@@ -71,7 +71,7 @@ function App() {
             {audioState ? 'Stop microphone' : 'Get microphone input'}
           </button>
           <button onClick={toggleWaveType}>
-            Change Waveform to {(waveType === 'sine') ? 'square' : 'sine'}
+            Change Waveform to {(waveType === 'sine') ? 'sawtooth' : 'sine'}
           </button>
           <br></br>
           Frequency Slider
